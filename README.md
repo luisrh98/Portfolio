@@ -169,7 +169,4 @@ Give it a ⭐️ if you like this project! For issues or questions, open an issu
 
 <div align="center">
 
-**Made with ❤️ by [serozr](https://github.com/serozr)**
-
 </div>
-"# Portfolio" 
