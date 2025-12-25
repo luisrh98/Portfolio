@@ -12,7 +12,6 @@
 [![GitHub stars](https://img.shields.io/github/stars/serozr/cyber-portfolio?style=social)](https://github.com/serozr/cyber-portfolio/stargazers)
 [![GitHub forks](https://img.shields.io/github/forks/serozr/cyber-portfolio?style=social)](https://github.com/serozr/cyber-portfolio/network/members)
 
-<img alt="Portfolio Preview" src="src\assets\images\mockup.png" width="800px" />
 
 </div>
 
