@@ -1,9 +1,6 @@
-/* signed: serozr */
-/*
-    File: animations.css
-    Purpose: animation keyframes used across the site
-    Signed by: serozr
-*/
+
+
+/* --------------------- Fade-in --------------------- */
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
@@ -14,6 +11,7 @@
     will-change: opacity, transform;
 }
 
+/* --------------------- Typing --------------------- */
 @keyframes typing {
     from { width: 0; }
     to { width: 100%; }
@@ -30,9 +28,79 @@
     animation: typing 3s steps(40) 1s 1 normal both, blink 0.5s step-end infinite;
 }
 
+/* --------------------- Pulse effect --------------------- */
 @keyframes pulse {
     0%, 100% { opacity: 1; }
     50% { opacity: 0.7; }
 }
 
-/* End of file - signed: serozr */
+/* --------------------- Buttons hover --------------------- */
+.btn-primary, .btn-secondary {
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover, .btn-secondary:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 15px rgba(0, 255, 140, 0.3);
+}
+
+/* --------------------- Timeline slide-in --------------------- */
+.timeline-item.fade-in-left {
+    opacity: 0;
+    transform: translateX(-30px);
+    transition: all 0.6s ease-out;
+}
+
+.timeline-item.fade-in-right {
+    opacity: 0;
+    transform: translateX(30px);
+    transition: all 0.6s ease-out;
+}
+
+/* --------------------- Cards hover --------------------- */
+.cert-card, .project-card, .blog-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cert-card:hover, .project-card:hover, .blog-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+}
+
+/* --------------------- Boot dots --------------------- */
+.boot-dots::after {
+    content: '...';
+    display: inline-block;
+    animation: dotsBlink 1s infinite steps(3);
+}
+
+@keyframes dotsBlink {
+    0%, 20% { color: transparent; }
+    40% { color: #00FF8C; }
+    60% { color: transparent; }
+    80% { color: #00FF8C; }
+    100% { color: transparent; }
+}
+
+/* --------------------- Footer --------------------- */
+footer {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.6s ease-out;
+}
+
+footer.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* --------------------- Skills --------------------- */
+.skill-progress {
+    width: 0; /* Inicialmente vacía */
+    transition: width 1s ease-out;
+}
+.skill-progress.visible {
+    /* El JS asignará width desde data-width */
+}
+
+

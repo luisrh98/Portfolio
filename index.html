@@ -50,7 +50,9 @@
 
     <nav>
         <div class="nav-content">
-            <div class="logo">&gt;_developer.sh <span class="logo-sign">· luisrh98/lBOOM</span></div>
+            <div class="logo">
+                developer.sh <span class="logo-sign">· luisrh98/lBOOM</span>
+            </div>
             <div class="hamburger" onclick="toggleMenu()">
                 <span></span>
                 <span></span>
@@ -63,7 +65,7 @@
                 <a href="#education" onclick="closeMenu()">Educación</a>
                 <a href="#certifications" onclick="closeMenu()">Certificaciones</a>
                 <a href="#tech-stack" onclick="closeMenu()">Herramientas</a>
-                <a href="#contribution" onclick="closeMenu()">Proyectos y aportaciones</a>
+                <a href="#contributions" onclick="closeMenu()">Proyectos y aportaciones</a>
                 <a href="#contact" onclick="closeMenu()">Contacto</a>
             </div>
         </div>
@@ -76,6 +78,7 @@
             <p class="subtitle">Auditorías de seguridad, explotación de vulnerabilidades, análisis ofensivo y desarrollo
                 web.</p>
 
+            <!-- Terminal -->
             <div class="terminal-window">
                 <div class="terminal-header">
                     <div class="terminal-dot dot-red"></div>
@@ -96,18 +99,19 @@
                     <p class="output">GitHub: <a href="https://github.com/luisrh98" target="_blank"
                             class="link">github.com/luisrh98</a> <span class="muted">· by luisrh98</span></p>
                     <br>
-                    <p><span class="prompt">$</span> <span class="output">_</span><span
-                            style="animation: blink 1s infinite;">|</span></p>
+                    <!-- Cursor parpadeante -->
+                    <p><span class="prompt">$</span> <span class="cursor">|</span></p>
                 </div>
             </div>
 
+            <!-- CTA Buttons -->
             <div class="cta-buttons">
                 <a href="#contributions" class="btn btn-primary">View Projects</a>
                 <a href="#contact" class="btn btn-secondary">Contact</a>
-
             </div>
         </div>
     </section>
+
 
     <section id="about">
         <h2>About Me</h2>
@@ -133,7 +137,7 @@
                             <div class="stat-label">Años programando</div>
                         </div>
                         <div class="stat-item">
-                            <div class="stat-number">50+</div>
+                            <div class="stat-number">80+</div>
                             <div class="stat-label">Laboratorios hechos</div>
                         </div>
                         <div class="stat-item">
@@ -704,7 +708,6 @@
                     <div class="contact-icon">📧</div>
                     <h3>Email</h3>
                     <a href="mailto:luisrodriguezher98@gmail.com">luisrodriguezher98@gmail.com</a>
-                    <div class="contact-note">preferred contact: <strong>Luis</strong></div>
                 </div>
 
                 <div class="contact-item fade-in" style="animation-delay: 0.1s;">
@@ -751,20 +754,22 @@
     </section>
 
     <footer>
-        <p>&copy; 2025 <span class="signature">Luis Rodríguez Hernández</span>. All rights reserved.</p>
-
-        <p style="margin-top: 0.5rem; font-size: 0.9rem;">
-            Developed with ❤️ by Luis Rodríguez Hernández
-        </p>
-
-        <p style="margin-top: 0.8rem; font-size: 0.75rem; color: #888; line-height: 1.4;">
-            Site maintained by <strong>Luis Rodríguez</strong><br>
-            <span style="opacity: 0.7;">Design inspired by
-                <a href="https://github.com/serozr" target="_blank"
-                    style="color: #00FF8C; text-decoration: none;">serozr</a>
-                under MIT License.
-            </span>
-        </p>
+        <div class="footer-content">
+            <p>&copy; 2025 <span class="signature">Luis Rodríguez Hernández</span>. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="https://github.com/luisrh98" target="_blank" rel="noopener" class="footer-link">GitHub</a>
+                <a href="https://www.linkedin.com/in/luisrodriguezher/" target="_blank" rel="noopener"
+                    class="footer-link">LinkedIn</a>
+                <a href="mailto:luisrodriguezher98@gmail.com" class="footer-link">Email</a>
+            </div>
+            <p class="footer-note">
+                Developed by <a href="https://github.com/luisrh98" target="_blank"
+                    class="footer-credit-link">luisrh98.</a>
+            </p>
+            <p class="footer-credit">
+                Design inspired by serozr.
+            </p>
+        </div>
     </footer>
 
 
