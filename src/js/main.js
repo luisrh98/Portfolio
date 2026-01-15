@@ -117,4 +117,10 @@ window.addEventListener('scroll', () => {
     }, 150);
 }, { passive: true });
 
+document.addEventListener('DOMContentLoaded', () => {
+    const footer = document.querySelector('footer');
+    footer.classList.add('visible');
+});
+
+
 
