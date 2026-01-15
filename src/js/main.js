@@ -44,23 +44,23 @@ document.querySelectorAll('.fade-in').forEach(el => {
     observer.observe(el);
 });
 
-const skillObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            const progressBars = entry.target.querySelectorAll('.skill-progress');
-            progressBars.forEach(bar => {
-                const width = bar.getAttribute('data-width');
-                setTimeout(() => {
-                    bar.style.width = width;
-                }, 100);
-            });
-            skillObserver.unobserve(entry.target);
-        }
-    });
-}, { threshold: 0.5 });
+document.addEventListener('DOMContentLoaded', () => {
+    const skillObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const bars = entry.target.querySelectorAll('.skill-progress');
+                bars.forEach(bar => {
+                    const width = bar.dataset.width; // data-width="80%"
+                    bar.style.width = width; // anima la barra
+                });
+                observer.unobserve(entry.target); // animación solo una vez
+            }
+        });
+    }, { threshold: 0.3 }); // 30% visible
 
-document.querySelectorAll('.skill-category').forEach(category => {
-    skillObserver.observe(category);
+    document.querySelectorAll('.skill-category').forEach(category => {
+        skillObserver.observe(category);
+    });
 });
 
 function toggleMenu() {
