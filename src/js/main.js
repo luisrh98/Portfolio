@@ -1,63 +1,79 @@
 
+// Boot Screen Animation
 document.addEventListener('DOMContentLoaded', () => {
-
-    /* ---------------- Boot Screen ---------------- */
     const bootScreen = document.getElementById('bootScreen');
-
-    const hideBootScreen = () => {
+    
+    // Hide boot screen after animation completes
+    setTimeout(() => {
+        bootScreen.classList.add('fade-out');
+        setTimeout(() => {
+            bootScreen.style.display = 'none';
+        }, 500);
+    }, 6000); // 6 seconds total boot time
+    
+    // Allow skipping with any key press or click
+    const skipBoot = () => {
         bootScreen.classList.add('fade-out');
         setTimeout(() => {
             bootScreen.style.display = 'none';
         }, 500);
     };
+    
+    document.addEventListener('keydown', skipBoot, { once: true });
+    bootScreen.addEventListener('click', skipBoot, { once: true });
+});
 
-    // Auto hide after 6s
-    setTimeout(hideBootScreen, 6000);
+const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -100px 0px'
+};
 
-    // Hide on any key press or click
-    document.addEventListener('keydown', hideBootScreen, { once: true });
-    bootScreen.addEventListener('click', hideBootScreen, { once: true });
-
-
-    /* ---------------- Fade-in Scroll ---------------- */
-    const fadeObserver = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.style.opacity = '1';
-                entry.target.style.transform = 'translateY(0)';
-                observer.unobserve(entry.target);
-            }
-        });
-    }, { threshold: 0.1 });
-
-    document.querySelectorAll('.fade-in').forEach(el => {
-        el.style.opacity = '0';
-        el.style.transform = 'translateY(20px)';
-        el.style.transition = 'all 0.6s ease-out';
-        fadeObserver.observe(el);
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+        }
     });
+}, observerOptions);
 
+document.querySelectorAll('.fade-in').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(20px)';
+    el.style.transition = 'all 0.6s ease-out';
+    observer.observe(el);
+});
 
-    /* ---------------- Skill Bars Scroll ---------------- */
-    const skillObserver = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const bars = entry.target.querySelectorAll('.skill-progress');
-                bars.forEach(bar => {
-                    const width = bar.getAttribute('data-width');
-                    bar.style.width = width; // rellena la barra
-                });
-                observer.unobserve(entry.target);
-            }
-        });
-    }, { threshold: 0.3 });
-
-    document.querySelectorAll('.skill-category').forEach(category => {
-        skillObserver.observe(category);
+const skillObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            const progressBars = entry.target.querySelectorAll('.skill-progress');
+            progressBars.forEach(bar => {
+                const width = bar.getAttribute('data-width');
+                setTimeout(() => {
+                    bar.style.width = width;
+                }, 100);
+            });
+            skillObserver.unobserve(entry.target);
+        }
     });
+}, { threshold: 0.5 });
 
+document.querySelectorAll('.skill-category').forEach(category => {
+    skillObserver.observe(category);
+});
 
-    /* ---------------- Smooth Scroll ---------------- */
+function toggleMenu() {
+    const navLinks = document.getElementById('navLinks');
+    navLinks.classList.toggle('active');
+}
+
+function closeMenu() {
+    const navLinks = document.getElementById('navLinks');
+    navLinks.classList.remove('active');
+}
+
+document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('a[href^="#"]').forEach(link => {
         link.addEventListener('click', (e) => {
             const href = link.getAttribute('href');
@@ -65,7 +81,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 e.preventDefault();
                 const target = document.querySelector(href);
                 if (target) {
-                    const offset = 80; // ajustar según altura de nav
+                    const offset = 80;
                     const targetPosition = target.offsetTop - offset;
                     window.scrollTo({
                         top: targetPosition,
@@ -76,18 +92,29 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    const lazyObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                lazyObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.1 });
 
-    /* ---------------- Hamburger Menu ---------------- */
-    window.toggleMenu = () => {
-        const navLinks = document.getElementById('navLinks');
-        navLinks.classList.toggle('active');
-    };
-
-    window.closeMenu = () => {
-        const navLinks = document.getElementById('navLinks');
-        navLinks.classList.remove('active');
-    };
-
+    document.querySelectorAll('section').forEach(section => {
+        section.classList.add('lazy-section');
+        lazyObserver.observe(section);
+    });
 });
+
+let scrollTimeout;
+window.addEventListener('scroll', () => {
+    if (scrollTimeout) {
+        clearTimeout(scrollTimeout);
+    }
+    scrollTimeout = setTimeout(() => {
+        document.body.style.overflowY = 'auto';
+    }, 150);
+}, { passive: true });
 
 
