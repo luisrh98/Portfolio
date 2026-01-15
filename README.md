@@ -4,13 +4,12 @@
 
 ### Modern Developer Portfolio with Terminal-Inspired Design
 
-<a href="https://serozr.me/cyber-portfolio" target="_blank">
+<a href="https://luisrh98.netlify.app/" target="_blank">
   <img src="https://img.shields.io/badge/🌐_Click_to_Check_Live-00CC00?style=for-the-badge&logoColor=black" alt="Live Demo" height="35">
 </a>
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-[![GitHub stars](https://img.shields.io/github/stars/serozr/cyber-portfolio?style=social)](https://github.com/serozr/cyber-portfolio/stargazers)
-[![GitHub forks](https://img.shields.io/github/forks/serozr/cyber-portfolio?style=social)](https://github.com/serozr/cyber-portfolio/network/members)
+
 
 
 </div>
